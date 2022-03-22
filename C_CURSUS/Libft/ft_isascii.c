@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/22 20:38:52 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/22 20:39:14 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include<stdio.h>
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    return (c >= 0 && c<= 127);   
+	return (c >= 0 && c <= 127);
 }
 
-int main ()
-{
-   
-
-    printf("%d\n", ft_isascii('m'));
-    return (0);
-}
+// int main ()
+// {
+//     printf("%d\n", ft_isascii('m'));
+//     return (0);
+// }

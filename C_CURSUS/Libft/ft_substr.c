@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 20:45:40 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 20:45:57 by fpedraza         ###   ########.fr       */
+/*   Created: 2022/03/22 21:09:52 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/22 21:10:54 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include<stdlib.h>
+#include<stdio.h>
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	int		i;
+	char	*ns;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (!(ns = malloc(sizeof(char) * len)))
+		return (NULL);
+	while (i < len)
 	{
-		if (str[i] == (char)c)
-			return ((char *)(str + i));
-		i++;
+		ns[i++] = s[start++];
 	}
-	return (NULL);
+	return (ns);
 }
-// int main () {
-//    const char str[] = "http://www.tutorialspoint.com";
-//    ft_strchr(str, '.');
 
-//    printf("%s",ft_strchr(str, '.'));
-//    return(0);
+// int main ()
+// {
+// 	char s[]="holacaracola";
+// 	printf("%s", ft_substr(s, 4, 8));
+// 	return (0);
 // }

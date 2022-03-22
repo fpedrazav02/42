@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/22 20:35:00 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/22 20:37:24 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include<stdio.h>
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    return ((c >= 97 && c<= 122) ||  (c >= 65 && c<= 90) ||(c >= 48 && c<= 59));   
+	return (ft_isalpha(char c) || (c >= 48 && c <= 59));
 }
 
-int main ()
-{
-    char letra;
+// int main ()
+// {
+//     char letra;
 
-    letra = '9';
-    printf("%i\n", ft_isalnum(letra));
-    return (0);
-}
+//     letra = '9';
+//     printf("%i\n", ft_isalnum(letra));
+//     return (0);
+// }

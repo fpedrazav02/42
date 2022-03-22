@@ -6,14 +6,13 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:50:17 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/21 18:06:12 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/22 20:30:42 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
-#include<stdlib.h>
-
+// #include<unistd.h>
+// #include<stdio.h>
+// #include<stdlib.h>
 int	ft_atoi(char *str)
 {
 	int	i;
@@ -30,7 +29,7 @@ int	ft_atoi(char *str)
 		sign *= -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i]<= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb = nb * 10 + (str[i] - '0');
 		i++;
@@ -38,9 +37,9 @@ int	ft_atoi(char *str)
 	return (nb * sign);
 }
 
-int main ()
-{
-  printf("%i\n", ft_atoi(" 12342342ab567"));
-  printf("%i\n", atoi(" 12342342ab567"));
-  return(0);
-}
+// int main ()
+// {
+//   printf("%i\n", ft_atoi(" 12342342ab567"));
+//   printf("%i\n", atoi(" 12342342ab567"));
+//   return(0);
+// }

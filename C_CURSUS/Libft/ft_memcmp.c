@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/22 20:42:09 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/22 20:42:09 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include<stdio.h>
 
 int
@@ -8,16 +20,16 @@ int
 	i = 0;
 	while (i < n)
 	{
-		if (*(unsigned char*)(s1 + i) != *(unsigned char*)(s2 + i))
-			return (*(unsigned char*)(s1 + i) - *(unsigned char*)(s2 + i));
+		if (*(unsigned char *)(s1 + i) != *(unsigned char *)(s2 + i))
+			return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
 		i++;
 	}
 	return (0);
 }
 
-int main ()
-{
-  char buffer1[] = "aaa";
-  char buffer2[] = "aab";
-  printf ("%i\n",ft_memcmp(buffer1,buffer2, 4));
-}
+// int main ()
+// {
+//   char buffer1[] = "aaa";
+//   char buffer2[] = "aab";
+//   printf ("%i\n",ft_memcmp(buffer1,buffer2, 4));
+// }

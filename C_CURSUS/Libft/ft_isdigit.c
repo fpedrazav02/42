@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/22 20:39:25 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/22 20:39:50 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include<stdio.h>
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    return (c >= 48 && c<= 59);   
+	return (c >= 48 && c <= 59);
 }
 
-int main ()
-{
-    printf("%i\n", ft_isdigit('m'));
-    return (0);
-}
+// int main ()
+// {
+//     printf("%i\n", ft_isdigit('m'));
+//     return (0);
+// }

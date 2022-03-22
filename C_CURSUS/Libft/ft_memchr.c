@@ -1,28 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/22 20:39:56 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/22 20:39:56 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include<stdio.h>
 
-void *ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-  size_t  i;
+	size_t	i;
 
-  if (!str)
-    return (NULL);
-  i = 0;
-  while(i < n)
-  {
-    if (*(unsigned char*)(str + i) == (unsigned char)c);
-      return ((void*)(str + i));
-    i++;
-  }
-  return (NULL);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		if (*(unsigned char *)(str + i) == (unsigned char)c);
+		return ((void *)(str + i));
+		i++;
+	}
+	return (NULL);
 }
 
-int main () {
-   const char str[] = "http://www.tutorialspoint.com";
-   const char c = 'w';
+// int main () {
+//    const char str[] = "http://www.tutorialspoint.com";
+//    const char c = 'w';
   
 
-   printf("%p\n", ft_memchr(str, c, 2));
+//    printf("%p\n", ft_memchr(str, c, 2));
    
 
-   return(0);
-}
+//    return(0);
+// }
