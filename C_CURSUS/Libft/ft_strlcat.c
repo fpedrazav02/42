@@ -6,42 +6,29 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:54:34 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 20:58:08 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:01:29 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-// int ft_strlen(char *str)
-// {
-//   int i;
+#include "libft.h"
 
-//   i = 0;
-//   while (*str != '\0')
-//   {  i++;
-//     str++;
-//   }
-//   return(i);
-// }
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int				i;
-	unsigned int	l_dest;
-	unsigned int	l_src;
+	size_t	i;
+	size_t	j;
+	size_t	s_len;
+	size_t	d_len;
 
+	d_len = ft_strlen(dst);
+	s_len = ft_strlen((char *)src);
 	i = 0;
-	l_dest = ft_strlen(dest);
-	l_src = ft_strlen(src);
-	if (size == 0 || size <= l_dest)
-		return (l_src + size);
-	while (*dest)
-		dest++;
-	while (*src && i < size - l_dest - 1)
-	{
-		*dest++ = *src++;
-		i++;
-	}
-	*dest = '\0';
-	return (l_dest + l_src);
+	j = d_len;
+	if (size <= d_len)
+		return (s_len + size);
+	while (src[i] && i < size - d_len - 1)
+		dst[j++] = src[i++];
+	dst[j] = '\0';
+	return (d_len + s_len);
 }
 // int main ()
 // {

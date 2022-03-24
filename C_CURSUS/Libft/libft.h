@@ -1,12 +1,24 @@
-#ifndef libft
-#define libft
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/24 15:06:01 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/24 15:06:11 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	atoi(const char *nptr);
+# include <unistd.h>
+# include <stdlib.h>
 
-void	bzero(void *s, size_t n);
+int	ft_atoi(const char *nptr);
+
+void	ft_bzero(void *s, size_t n);
 
 void	*ft_calloc(size_t nitems, size_t size);
 
@@ -34,13 +46,13 @@ char	*ft_strdup(const char *s);
 
 char	*ft_strjoin(char const *s1, char const *s2);
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
-int	ft_strlcpy(char *dest, char *src, int size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 size_t	ft_strlen(char *str);
 
-int	ft_strncmp(char *s1, char *s2, int n);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char	*ft_strnstr(char *str, char *to_find, int len);
 
@@ -51,6 +63,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int	ft_tolower(int x);
 
 int	ft_toupper(int x);
-
-
-#endif
+#endif /*....LIBFT_H*/
