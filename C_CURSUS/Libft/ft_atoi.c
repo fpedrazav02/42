@@ -6,37 +6,39 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:50:17 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 20:30:42 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:25:26 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include<unistd.h>
-// #include<stdio.h>
-// #include<stdlib.h>
-#include"libft.h"
+#include "libft.h"
 
-int atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	nb;
+	long int	num;
+	long int	sign;
 
-	i = 0;
+	num = 0;
 	sign = 1;
-	nb = 0;
-	while (nptr[i] <= ' ')
-		i++;
-	if (nptr[i] == '-' && (nptr[i + 1] >= '0' && nptr[i + 1] <= '9'))
+	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
+		nptr++;
+	if (*nptr == '-' && (ft_isdigit(*(nptr + 1))))
 	{
-		sign *= -1;
-		i++;
+		if (*nptr == '-')
+			sign *= -1;
+		nptr++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	if (*nptr == '+' && (ft_isdigit(*(nptr + 1))))
+		nptr++;
+	while (ft_isdigit(*nptr))
 	{
-		nb = nb * 10 + (nptr[i] - '0');
-		i++;
+		num = num * 10 + *nptr - '0';
+		if (num * sign < -2147483648)
+			return (0);
+		else if (num * sign > 2147483647)
+			return (-1);
+		nptr++;
 	}
-	return (nb * sign);
+	return (num * sign);
 }
 
 // int main ()

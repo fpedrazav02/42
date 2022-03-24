@@ -6,22 +6,17 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:12:04 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 21:12:47 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:13:10 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int	ft_isupper(int c)
+int	ft_tolower(int c)
 {
-	return (c >= 65 && c <= 90);
-}
-
-int	ft_tolower(int x)
-{
-	if (ft_isupper(x))
-		x += 32;
-	return (x);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }
 // int main ()
 // {

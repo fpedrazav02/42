@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:48:23 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 20:54:27 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:23:17 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 //         i++;
 //     return (i);
 // }
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *ft_strjoin(char const *s1, char const *s2))
 {
 	char	*join;
 	int		total_l;
@@ -29,9 +29,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	total_l = ft_strlen(s1) + ft_strlen(s2);
+	total_l = ft_strlen((const char*) s1) + ft_strlen((const char*) s2);
 	if (!(join = malloc(sizeof(char) * total_l + 1)))
-		return (NULL);
+		return (NULL);	
 	while (s1[i])
 	{
 		join[j++] = s1[i++];

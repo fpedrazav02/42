@@ -6,17 +6,16 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:39:25 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 20:39:50 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:09:41 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
-	return (c >= 48 && c <= 59);
+	return (c >= '0' && c <= '9');
 }
-
 // int main ()
 // {
 //     printf("%i\n", ft_isdigit('m'));

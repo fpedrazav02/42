@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:06:01 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/24 15:06:11 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:12:13 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_isalpha(int c);
 int	ft_isascii(int c);
 
 int	ft_isdigit(int c);
+
+int	ft_isprint(int c);
 
 void	*ft_memchr(const void *str, int c, size_t n);
 
