@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:46:49 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 20:48:08 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:42:19 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strdup(const char *s)
 	int		i;
 
 	i = 0;
-	s_l = ft_strlen(s);
+	s_l = ft_strlen((char *)s);
 	if (!(dup = (char *)malloc(sizeof(char) * s_l + 1)))
 		return (NULL);
 	while (i <= s_l)
