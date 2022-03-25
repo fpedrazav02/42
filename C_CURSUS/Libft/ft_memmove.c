@@ -10,15 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	*ft_memmove(void *destination, const void *source, size_t num)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	while (num--)
+	char	*dst;
+	char	*s;
+
+	dst = (char *)dest;
+	s = (char *)src;
+	if (s < dst)
 	{
-		*(unsigned char *)destination++ = *(unsigned char *)source++;
+		dst += len - 1;
+		s += len - 1;
+		while (len--)
+			*dst-- = *s--;
 	}
-	return (destination);
+	else
+		ft_memcpy(dest, (void *)src, len);
+	return (dest);
 }
 
 // int main () {

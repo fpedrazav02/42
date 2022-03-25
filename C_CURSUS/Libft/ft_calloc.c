@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:32:45 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 20:34:47 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/25 10:27:52 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,30 @@
 // 	while (n--)
 // 		((unsigned char *)s)[i++] = '0';
 // }
-
 void	*ft_calloc(size_t nitems, size_t size)
 {
-	void	*ptr;
+	unsigned char	*p;
+	size_t			i;
 
-	if (!(ptr = malloc(nitems * size)))
-		return (NULL);
-	ft_bzero(ptr, nitems);
-	return (ptr);
+	p = malloc(nitems * size);
+	if (p != NULL)
+	{
+		i = 0;
+		while (i < nitems * size)
+			*(p + i++) = '\0';
+	}
+	return (p);
 }
+/*Dont need to cast back*/
+// void	*ft_calloc(size_t nitems, size_t size)
+// {
+// 	void	*ptr;
+
+// 	ptr = (void *)malloc(nitems * size);
+// 	if (ptr != NULL)
+// 		ft_bzero(ptr, nitems);
+// 	return (ptr);
+// }
 
 // int main ()
 // {

@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:02:55 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/22 21:04:01 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/25 10:57:25 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,41 @@ char	*ft_strnstr(char *str, char *to_find, int len)
 	i = 0;
 	if (to_find[0] == '\0')
 		return (str);
-	while (*str != '\0' && i < len)
+		i = 0;
+	while (str[i] && i < len)
 	{
 		j = 0;
-		while (str[i + j] == to_find[j] && str[i + j != '\0'])
-		{
-			if (to_find[j + 1] == '\0')
-				return (&str[i]);
+		while (str[i + j] && to_find[j]
+			&& i + j < len && str[i + j] == to_find[j])
 			j++;
-		}
+		if (!to_find[j])
+			return ((char *)(str + i));
 		i++;
 	}
 	return (NULL);
 }
+
+// char
+// 	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+// {
+// 	size_t	i;
+// 	size_t	j;
+
+// 	if (!haystack || !needle)
+// 		return (NULL);
+// 	if (!needle || !needle[0])
+// 		return ((char*)haystack);
+// 	i = 0;
+// 	while (haystack[i] && i < len)
+// 	{
+// 		j = 0;
+// 			j++;
+// 		if (!needle[j])
+// 			return ((char*)(haystack + i));
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
 // int main ()
 // {
 //   char str[]= "HOLACARACOLA";

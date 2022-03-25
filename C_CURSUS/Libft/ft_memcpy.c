@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:42:46 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/24 14:58:51 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/25 10:58:00 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	int	i;
 
 	i = 0;
-	if ((dest == '\0' && src == '\0') || !n) /* Necessary statement */
+	if ((dest == '\0' && src == '\0') || !n)
 		return (dest);
 	while (n--)
 	{
@@ -25,8 +25,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		i++;
 	}
 	return (dest);
-	}
+}
 
+/* Necessary statement */
 // int main ()
 // {
 // 	char dest[]="HOLASSSSS";
