@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:06:01 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/25 10:43:01 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/28 00:35:39 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ char	*ft_strchr(const char *str, int c);
 
 char	*ft_strdup(const char *s);
 
-char	*ft_strjoin(char const *s1, char const *s2);
-
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
@@ -60,9 +58,34 @@ char	*ft_strnstr(char *str, char *to_find, int len);
 
 char	*ft_strrchr(const char *str, int c);
 
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
 int		ft_tolower(int x);
 
 int		ft_toupper(int x);
+
+char	*ft_strjoin(char const *s1, char const *s2);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+char	*ft_itoa(int n);
+
+void	ft_putchar_fd(char c, int fd);
+
+void	ft_putendl_fd(char *s, int fd);
+
+void	ft_putnbr_fd(int n, int fd);
+
+void	ft_putstr_fd(char *s, int fd);
+
+char	**ft_split(char const *s, char c);
+
+char	*ft_strjoin(char const *s1, char const *s2);
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+char	*ft_strtrim(char const *s1, char const *set);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
 #endif /*....LIBFT_H*/

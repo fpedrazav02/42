@@ -6,41 +6,49 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:45:40 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/25 09:45:33 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/27 22:02:24 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
+/*
+** Locates the first occurence of c in a string. The null character \0
+**	is part of the string
+** Input: const char s, int c
+** Return:
+**		ptr to located char
+**		NULL if not in the string
+*/
 // char	*ft_strchr(const char *str, int c)
 // {
-// 	int	i;
-
-// 	i = 0;
-// 	if (!str)
-// 		return (NULL);
-// 	while (str[i] != '\0')
-// 	{
-// 		if (str[i] == (char)c)
-// 			return ((char *)(str + i));
-// 		i++;
-// 	}
-// 	return (NULL);
+// 	while (*str && *str != c)
+// 		str++;
+// 	if (*str == (char) c)
+// 		return ((char *)(str));
+// 	return (0);
 // }
-char	*ft_strchr(const char *str, int c)
+
+char	*ft_strchr(char const *str, int c)
 {
-	while (*str && *str != c)
-		str++;
-	if (*str == c)
-		return ((char *)(str));
+	char	*ptr;
+
+	ptr = (char *)str;
+	while (*ptr)
+	{
+		if (*ptr == (char)c)
+			return (ptr);
+		ptr++;
+	}
+	if (c == 0)
+		return (ptr);
 	return (0);
 }
-// if (!str)
-// 		return (0);
+// #include<stdio.h>
 // int main () {
-//    const char str[] = "http://www.tutorialspoint.com";
-//    ft_strchr(str, '.');
+//    const char str[] = "aaaaaaaeaaaaaaa";
+//    ft_strchr(str, 'e' + 256);
 
-//    printf("%s",ft_strchr(str, '.'));
+//    printf("%s",ft_strchr(str, 'e' + 256));
 //    return(0);
 // }
