@@ -1,9 +1,28 @@
-t_list *ft_lstnew(void *content)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/29 21:25:07 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/29 21:25:07 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include"libft.h"
+
+t_list	*ft_lstnew(void *content)
 {
-    t_list  *new_lnode;
+	t_list	*node;
 
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
-
 
 /*
 Parameters content: The content to create the node with.

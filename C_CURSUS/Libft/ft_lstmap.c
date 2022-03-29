@@ -1,26 +1,42 @@
-t_list  *ft_lstmap(t_list *node, void *(*f)(void *),void (*del)(void *))
-{
-    t_list  *new_nodel;
-    t_list  *ptr;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/29 21:23:42 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/29 21:23:42 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    new_nodel = ft_lstnew(f(node->content));
-    if (!new_nodel)
-        return (NULL);
-    ptr = new_nodel;
-    node = node->next;
-    while (node != NULL)
-    {
-        new_nodel->next = ft_lstnew(f(node->content));
-        if (!new_nodel->next)
-        {
-           ft_lstclear(&ptr, del);
-           return ;
-        }
-        new_nodel = new_nodel->next;
-        node = node->next;
-    }
-    new_nodel->next = NULL;
-    return (ptr);
+#include"libft.h"
+
+t_list	*ft_lstmap(t_list *node, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*new_nodel;
+	t_list	*ptr;
+
+	if (!node)
+		return (NULL);
+	new_nodel = ft_lstnew(f(node->content));
+	if (!new_nodel)
+		return (NULL);
+	ptr = new_nodel;
+	node = node->next;
+	while (node != NULL)
+	{
+		new_nodel->next = ft_lstnew(f(node->content));
+		if (!new_nodel->next)
+		{
+			ft_lstclear(&ptr, del);
+			return (NULL);
+		}
+		new_nodel = new_nodel->next;
+		node = node->next;
+	}
+	new_nodel->next = NULL;
+	return (ptr);
 }
 
 /*

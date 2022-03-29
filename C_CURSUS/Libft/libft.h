@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:06:01 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/28 00:35:39 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/29 22:08:56 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *nptr);
 
@@ -87,5 +93,23 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strtrim(char const *s1, char const *set);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+void	ft_lstadd_back(t_list **root, t_list *new);
+
+void	ft_lstadd_front(t_list **root, t_list *new);
+
+void	ft_lstclear(t_list **node, void (*del)(void*));
+
+void	ft_lstdelone(t_list *node, void (*del)(void*));
+
+void	ft_lstiter(t_list *root, void (*f)(void *));
+
+t_list	*ft_lstlast(t_list *root);
+
+t_list	*ft_lstmap(t_list *node, void *(*f)(void *), void (*del)(void *));
+
+t_list	*ft_lstnew(void *content);
+
+int		ft_lstsize(t_list *lst);
 
 #endif /*....LIBFT_H*/

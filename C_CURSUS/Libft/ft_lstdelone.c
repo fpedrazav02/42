@@ -1,7 +1,21 @@
-void    ft_lstdelone(t_list *node, void (*del)(void*))
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/29 21:22:15 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/29 21:22:15 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include"libft.h"
+
+void	ft_lstdelone(t_list *node, void (*del)(void*))
 {
-    (del)(node->content);
-    free(node);
+	(del)(node->content);
+	free(node);
 }
 
 /*

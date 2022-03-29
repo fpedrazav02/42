@@ -1,16 +1,30 @@
-void    ft_lstclear(t_list **node, void (*del)(void*))
-{
-    t_list  *aux;
-    t_list  *ptr;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/29 21:21:57 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/29 21:21:57 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    ptr = *node;
-    while (ptr != NULL)
-    {
-        aux = ptr->next;
-        ft_lstdelone(ptr,del);
-        ptr = aux;
-    }
-    *node = NULL;
+#include"libft.h"
+
+void	ft_lstclear(t_list **node, void (*del)(void*))
+{
+	t_list	*aux;
+	t_list	*ptr;
+
+	ptr = *node;
+	while (ptr != NULL)
+	{
+		aux = ptr->next;
+		ft_lstdelone(ptr, del);
+		ptr = aux;
+	}
+	*node = NULL;
 }
 
 /*

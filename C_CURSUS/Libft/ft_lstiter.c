@@ -1,13 +1,27 @@
-void    ft_lstiter(t_list *root, void (*f)(void *))
-{
-    t_list  *ptr;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/29 21:22:42 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/03/29 21:22:42 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    ptr = root;
-    while (ptr != NULL)
-    {
-        (f)(ptr->content);
-        ptr = ptr->next;
-    }
+#include"libft.h"
+
+void	ft_lstiter(t_list *root, void (*f)(void *))
+{
+	t_list	*ptr;
+
+	ptr = root;
+	while (ptr != NULL)
+	{
+		(f)(ptr->content);
+		ptr = ptr->next;
+	}
 }
 
 /*
