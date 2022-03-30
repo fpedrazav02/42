@@ -6,7 +6,7 @@
 #    By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 10:02:45 by fpedraza          #+#    #+#              #
-#    Updated: 2022/03/29 23:35:43 by fpedraza         ###   ########.fr        #
+#    Updated: 2022/03/30 03:05:20 by fpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CC_FLAGS 		= 	-Wall -Werror -Wextra -I
 RM_RF 			= 	rm -rfv
 NAME 			= 	libft.a	
 
-# Objectives
+
 all:			$(NAME)
 
 $(NAME):		$(OBJS)

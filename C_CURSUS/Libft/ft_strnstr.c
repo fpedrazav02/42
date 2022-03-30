@@ -6,13 +6,13 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:02:55 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/25 10:57:25 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/30 02:57:48 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-char	*ft_strnstr(char *str, char *to_find, int len)
+char	*ft_strnstr(char *str, char *to_find, unsigned int len)
 {
 	int	i;
 	int	j;

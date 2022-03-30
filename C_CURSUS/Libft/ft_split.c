@@ -96,6 +96,9 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
+// #include<stdlib.h>
+// #include<stdio.h>
+
 // int		main(void)
 // {
 // 	int i = 0;
@@ -106,5 +109,7 @@ char	**ft_split(char const *s, char c)
 // 		printf("string %d : %s\n", i, tab[i]);
 // 		i++;
 // 	}
+// 	// system ("leaks a.out");
+// 	system ("leaks a.out");
 // 	return (0);
 // }
