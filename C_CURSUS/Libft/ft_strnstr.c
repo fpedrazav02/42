@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 21:02:55 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/30 02:57:48 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/30 03:28:55 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(char *str, char *to_find, unsigned int len)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
 	if (to_find[0] == '\0')
@@ -34,27 +34,6 @@ char	*ft_strnstr(char *str, char *to_find, unsigned int len)
 	return (NULL);
 }
 
-// char
-// 	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-// {
-// 	size_t	i;
-// 	size_t	j;
-
-// 	if (!haystack || !needle)
-// 		return (NULL);
-// 	if (!needle || !needle[0])
-// 		return ((char*)haystack);
-// 	i = 0;
-// 	while (haystack[i] && i < len)
-// 	{
-// 		j = 0;
-// 			j++;
-// 		if (!needle[j])
-// 			return ((char*)(haystack + i));
-// 		i++;
-// 	}
-// 	return (NULL);
-// }
 // int main ()
 // {
 //   char str[]= "HOLACARACOLA";
