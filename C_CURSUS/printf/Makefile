@@ -8,7 +8,7 @@ LIBFT			=	Libft
 NAME			= 	libftprintf.a
 AR				=	ar crs
 #################  SRCS      ##############################################
-SRC_FILES		=	ft_printf ft_printf_utils ft_print_ptr ft_print_unsigned ft_print_hex
+SRC_FILES		=	ft_hex ft_printchar ft_printf ft_printnbr ft_printp ft_printpercent ft_printstr ft_printunbr
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))		
@@ -18,7 +18,7 @@ OBJF		=	.cache_exists
 all:			$(NAME)
 
 $(OBJ_DIR)%.o: 	$(SRC_DIR)%.c | $(OBJF)
-				@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+				@$(CC) $(CC_FLAGS) $(INCLUDE) -c $< -o $@
 
 $(NAME):		$(OBJS)
 				@make -C $(LIBFT)

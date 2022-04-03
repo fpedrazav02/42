@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
 #include"printf.h"
 
 static int	ft_hexlen(unsigned int nbr)
@@ -21,7 +20,7 @@ static int	ft_hexlen(unsigned int nbr)
 	while (nbr != 0)
 	{
 		len++;
-		nbr / 16;
+		nbr /= 16;
 	}
 	return (len);
 }
