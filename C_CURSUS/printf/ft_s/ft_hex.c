@@ -30,8 +30,8 @@ void	ft_phex(unsigned int nbr, const char format)
 {
 	if (nbr >= 16)
 	{
-		ft_phex(nbr % 16);
-		ft_phex(nbr / 16);
+		ft_phex(nbr % 16, format);
+		ft_phex(nbr / 16, format);
 	}
 	else
 	{
