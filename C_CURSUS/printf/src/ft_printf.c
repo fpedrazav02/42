@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
 #include"printf.h"
 
 static int	ft_format(va_list list, const char format)
@@ -48,7 +47,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			print_length += ft_formats(args, str[i + 1]);
+			print_length += ft_format(args, str[i + 1]);
 			i++;
 		}
 		else
