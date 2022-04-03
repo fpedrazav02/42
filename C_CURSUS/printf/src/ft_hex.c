@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include"ft_printf.h"
+#include"libft.h"
 
 static int	ft_hexlen(unsigned int nbr)
 {

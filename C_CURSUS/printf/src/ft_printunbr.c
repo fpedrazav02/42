@@ -28,11 +28,13 @@ static int	ft_nbrlen(unsigned int n)
 
 static char	*ft_uitoa(unsigned int nbr)
 {
-	int		len;
-	char	*num;
+	unsigned int	len;
+	char			*num;
 
 	len = ft_nbrlen(nbr);
 	num = (char *)malloc(sizeof(char) * len + 1);
+	if (!num)
+		return (NULL);
 	num[len] = '\0';
 	while (nbr != 0)
 	{
@@ -53,7 +55,7 @@ int	ft_printunbr(unsigned int nbr)
 		len += write(1, "0", 1);
 	else
 	{
-		nbr = ft_uitoa(nbr);
+		num = ft_uitoa(nbr);
 		len += ft_printstr(num);
 		free(num);
 	}
