@@ -25,7 +25,7 @@ int		ft_printf(const char *format, ...);
 
 int		ft_printnbr(int n);
 
-int		ft_printp(unsigned long ptr);
+int		ft_printp(unsigned long long ptr);
 
 int		ft_printpercent(void);
 

@@ -13,7 +13,7 @@
 #include"libft.h"
 #include"ft_printf.h"
 
-static int	ft_nbrl(unsigned long nbr)
+static int	ft_nbrl(uintptr_t nbr)
 {
 	int	len;
 
@@ -26,12 +26,12 @@ static int	ft_nbrl(unsigned long nbr)
 	return (len);
 }
 
-static void	ft_putnbrh(unsigned long nbr)
+static void	ft_putnbrh(uintptr_t nbr)
 {
 	if (nbr >= 16)
 	{
-		ft_printp(nbr % 16);
-		ft_printp(nbr / 16);
+		ft_putnbrh(nbr / 16);
+		ft_putnbrh(nbr % 16);
 	}
 	else
 	{
@@ -42,18 +42,18 @@ static void	ft_putnbrh(unsigned long nbr)
 	}
 }
 
-int	ft_printp(unsigned long ptr)
+int	ft_printp(unsigned long long nbr)
 {
 	int	plen;
 
 	plen = 0;
-	plen += write (1, "0x", 2);
-	if (ptr == 0)
+	plen += write(1, "0x", 2);
+	if (nbr == 0)
 		plen += write(1, "0", 1);
 	else
 	{
-		ft_putnbrh(ptr);
-		plen += ft_nbrl(ptr);
+		ft_putnbrh(nbr);
+		plen += ft_nbrl(nbr);
 	}
 	return (plen);
 }

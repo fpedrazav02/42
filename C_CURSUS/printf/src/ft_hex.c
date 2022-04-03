@@ -30,20 +30,20 @@ static void	ft_phex(unsigned int nbr, const char format)
 {
 	if (nbr >= 16)
 	{
-		ft_phex(nbr % 16, format);
 		ft_phex(nbr / 16, format);
+		ft_phex(nbr % 16, format);
 	}
 	else
 	{
 		if (nbr <= 9)
-			ft_putchar_fd((nbr) + '0', 1);
+			ft_putchar_fd((nbr + '0'), 1);
 		else
 		{
 			if (format == 'x')
 			{
 				ft_putchar_fd((nbr - 10) + 'a', 1);
 			}
-			else
+			if (format == 'X')
 			{
 				ft_putchar_fd((nbr - 10) + 'A', 1);
 			}
@@ -59,7 +59,7 @@ int	ft_hex(unsigned int nbr, const char format)
 	if (nbr == 0)
 	{
 		write (1, "0", 1);
-		return (0);
+		return (1);
 	}
 	else
 	{
