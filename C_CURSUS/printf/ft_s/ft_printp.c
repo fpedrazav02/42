@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/03 09:34:01 by fpedraza          #+#    #+#             */
+/*   Updated: 2022/04/03 09:34:01 by fpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
 #include"printf.h"
 
@@ -14,7 +26,7 @@ static int ft_nbrl (unsigned long nbr)
     return (len);
 }
 
-static void    ft_putnbr(unsigned long nbr)
+static void    ft_putnbrh(unsigned long nbr)
 {
     if (nbr >= 16)
     {
@@ -40,7 +52,7 @@ int ft_printp(unsigned long ptr)
         plen += write(1, "0", 1);
     else
     {
-        ft_putnbr(ptr);
+        ft_putnbrh(ptr);
         plen += ft_nbrl(ptr);
     }
 

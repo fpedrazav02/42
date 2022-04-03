@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:46:49 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/25 09:53:29 by fpedraza         ###   ########.fr       */
+/*   Updated: 2022/03/30 19:02:52 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*ft_strdup(const char *s)
 		dup[i] = s[i];
 		i++;
 	}
+	dup[i] = 0;
 	return (dup);
 }
 
