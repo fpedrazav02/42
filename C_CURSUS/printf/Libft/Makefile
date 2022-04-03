@@ -6,12 +6,12 @@
 #    By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 10:02:45 by fpedraza          #+#    #+#              #
-#    Updated: 2022/04/03 18:34:24 by fpedraza         ###   ########.fr        #
+#    Updated: 2022/04/04 00:11:09 by fpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-#Standard
+####################################### STANDAR VAR + LOCATIONS ################################################################
 
 NAME		=	libft.a
 INCLUDES	=	../include
@@ -19,22 +19,13 @@ SRCS_DIR 	=	src/
 OBJS_DIR	=	obj/
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -I
-RM			=	rm -f
+RM			=	rm -rf
 AR			=	ar rcs
 
-#Colors
 
-DEF_COLOR = \033[0;39m
-GRAY = \033[0;90m
-RED = \033[0;91m
-GREEN = \033[0;92m
-YELLOW = \033[0;93m
-BLUE = \033[0;94m
-MAGENTA = \033[0;95m
-CYAN = \033[0;96m
-WHITE = \033[0;97m
+# # # variables, que son STANDAR, además de dir para meter los .o y los .c --> los headers van en el STANDAR INCLUDES.
 
-#Sources
+####################################### CREATE PATHS  + VARS WITH FILES ############################################
 
 FTIS_DIR	=	ft_is/
 FTIS		=	ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
@@ -67,7 +58,11 @@ SRC_FILES+=$(addprefix $(FTLST_DIR),$(FTLST))
 SRCS 		= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS 		= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
 
-###
+
+####Como los archivos están separados en DIR distintos, creamos una var a modo de PATH, lo usamos como comando a nivel 
+#### de sistemas y mediante addprefix y addsuffix podemos ir sumándo todos los PATHS de las distintas carpetas en 
+#### SRC_FILES, que luego aplicamos de igual modo con .c o .o, metiendo todo o en SRCS o en OBJS
+#########################################################################################################################
 
 OBJSF		=	.cache_exists
 
@@ -76,10 +71,10 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 			@$(AR) $(NAME) $(OBJS)
 			@ranlib $(NAME)
-			@echo "$(GREEN)Libft compiled!$(DEF_COLOR)"
+			@echo "compilation of libft has been completed"
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c | $(OBJSF)
-			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+			@echo "Compiling: $<"
 			@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJSF):
@@ -92,18 +87,42 @@ $(OBJSF):
 			@mkdir -p $(OBJS_DIR)$(FTLST_DIR)
 
 clean:
-			@$(RM) -rf $(OBJS_DIR)
-			@$(RM) -f $(OBJSF)
-			@echo "$(BLUE)libft objects files cleaned!$(DEF_COLOR)"
+			@$(RM) -rfv $(OBJS_DIR)
+			@$(RM) -rfv $(OBJSF)
+			@echo "all *.o files have been cleared"
 
 fclean:		clean
-			@$(RM) -f $(NAME)
-			@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
+			@$(RM) -fv $(NAME)
+			@echo "fclean executed correctly!"
 
 re:			fclean all
-			@echo "$(GREEN)Cleaned and rebuilt everything for libft!$(DEF_COLOR)"
+			@echo "DONE RE:!"
 
-norm:
-	@norminette $(SRCS) $(INCLUDES) | grep -v Norme -B1 || true
+.PHONY:		all clean fclean re 
 
-.PHONY:		all clean fclean re norm
+
+###### Funciones STANDAR, || @command no es necesario si solo aplicas comandos a nivel de sistemas || -p flag para crear
+##### p o –parents: crea un directorio de forma recursiva (cuando no hay un directorio encima del directorio creado)
+#### como le damos el prefijo del directorio padre, nos usa $(OBJS_DIR) como dir padre y vamos metiendo el resto de 
+### los directorios, de ahí el -I, si le damos uno que no existe lo crea, si lo hay los mete ahí
+## 
+#  	$< --> The file name of the target of the rule --< evaluates to all first prerequisite
+#	$@ --> The name of the first prerequisite --< evaluates to all
+#
+# @ranlib -->  ranlib generates an index to the contents of an archive and stores it in the archive
+#An archive with such an index speeds up linking to the library and allows 
+#routines in the library to call each other without regard to their placement in the archive.
+#	.cache exists --> check de si existe en el cache...
+#
+#	-c -->  Compile or assemble the source files, but do not link.
+#	-o --> If -o is not specified, the default is to put an executable file in a.out
+#	
+#	# Define a pattern rule that compiles every .c file into a .o file
+#			%.o : %.c
+#			$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+##
+###
+####	
+#####
+######
+###################################################################################################################
