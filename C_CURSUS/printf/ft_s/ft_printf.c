@@ -35,25 +35,26 @@ static int	ft_format(va_list list, const char format)
 	return (plen);
 }
 
-int ft_printf(const *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	int i;
-	int flen;
-	va_list list;
-	
-	va_start(list, str);
+	int		i;
+	va_list	args;
+	int		print_length;
+
 	i = 0;
-	flen = 0;
+	print_length = 0;
+	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			flen = flen + ft_format(list, str[i + i]);
+			print_length += ft_formats(args, str[i + 1]);
 			i++;
-        }
-        else
-            flen = flen + ft_psrintchar(str[i]);
-        i++;
-    }
-	return (flen);
+		}
+		else
+			print_length += ft_printchar(str[i]);
+		i++;
+	}
+	va_end(args);
+	return (print_length);
 }

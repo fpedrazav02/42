@@ -21,7 +21,7 @@ static int	ft_hexlen(unsigned int nbr)
 	while (nbr != 0)
 	{
 		len++;
-		nbr / 16
+		nbr / 16;
 	}
 	return (len);
 }
