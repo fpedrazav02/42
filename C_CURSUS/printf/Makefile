@@ -7,6 +7,7 @@ RM_RF 			= 	rm -rfv
 LIBFT			=	Libft
 NAME			= 	libftprintf.a
 AR				=	ar crs
+INCLUDE			= include
 #################  SRCS      ##############################################
 SRC_FILES		=	ft_hex ft_printchar ft_printf ft_printnbr ft_printp ft_printpercent ft_printstr ft_printunbr
 

@@ -6,7 +6,7 @@
 #    By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 10:02:45 by fpedraza          #+#    #+#              #
-#    Updated: 2022/03/30 03:05:20 by fpedraza         ###   ########.fr        #
+#    Updated: 2022/04/03 18:20:26 by fpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,12 @@ CC 				=	gcc
 CC_FLAGS 		= 	-Wall -Werror -Wextra -I
 RM_RF 			= 	rm -rfv
 NAME 			= 	libft.a	
-
+INCLUDES		=	../include
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
+				@ranlib $(NAME)
 				ar crs $(NAME) $(OBJS)
 
 bonus:			$(OBJS) $(BONUS_OBJS)

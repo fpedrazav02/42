@@ -14,9 +14,8 @@
 # define PRINTF_H
 
 # include <stdarg.h>
-#include  <stdlib.h>
+# include  <stdlib.h>
 # include <unistd.h>
-# include "libft.h"
 
 int		ft_hex(unsigned int nbr, const char format);
 
