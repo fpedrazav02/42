@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include"ft_printf.h"
 
 static int	ft_hexlen(unsigned int nbr)
 {
@@ -44,7 +44,7 @@ static void	ft_phex(unsigned int nbr, const char format)
 			}
 			else
 			{
-				pt_putchar_fd((nbr - 10) + 'A', 1);
+				ft_putchar_fd((nbr - 10) + 'A', 1);
 			}
 		}
 	}
@@ -54,7 +54,7 @@ int	ft_hex(unsigned int nbr, const char format)
 {
 	int	plen;
 
-	plen = ft_hexlen;
+	plen = ft_hexlen(nbr);
 	if (nbr == 0)
 	{
 		write (1, "0", 1);
