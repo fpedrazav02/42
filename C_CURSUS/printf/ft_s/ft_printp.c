@@ -36,9 +36,9 @@ static void	ft_putnbrh(unsigned long nbr)
 	else
 	{
 		if (nbr <= 9)
-			ft_putchar_fd(1, (nbr + '0'), 1);
+			ft_putchar_fd((nbr + '0'), 1);
 		else
-			ft_putchar_fd(1, (nbr - 10) + 'a', 1);
+			ft_putchar_fd((nbr - 10) + 'a', 1);
 	}
 }
 

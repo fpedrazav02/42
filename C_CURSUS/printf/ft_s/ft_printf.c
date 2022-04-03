@@ -13,7 +13,7 @@
 #include"libft.h"
 #include"printf.h"
 
-int	ft_format(va_list list, const char format)
+static int	ft_format(va_list list, const char format)
 {
 	int	plen;
 
@@ -39,16 +39,16 @@ int ft_printf(const *str, ...)
 {
 	int i;
 	int flen;
-	va_list lists;
+	va_list list;
+	
 	va_start(list, str);
-
 	i = 0;
 	flen = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			flen = flen + ft_format(str[i + i]);
+			flen = flen + ft_format(list, str[i + i]);
 			i++;
         }
         else

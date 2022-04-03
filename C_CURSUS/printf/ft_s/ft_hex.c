@@ -13,7 +13,7 @@
 #include"libft.h"
 #include"printf.h"
 
-int	ft_hexlen(unsigned int nbr)
+static int	ft_hexlen(unsigned int nbr)
 {
 	int	len;
 
@@ -26,7 +26,7 @@ int	ft_hexlen(unsigned int nbr)
 	return (len);
 }
 
-void	ft_phex(unsigned int nbr, const char format)
+static void	ft_phex(unsigned int nbr, const char format)
 {
 	if (nbr >= 16)
 	{
