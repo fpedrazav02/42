@@ -1,4 +1,4 @@
-#Variables
+####################################### STANDAR VAR + LOCATIONS ################################################################
 
 NAME		= libftprintf.a
 INCLUDE		= include
@@ -10,19 +10,35 @@ CFLAGS		= -Wall -Werror -Wextra -I
 RM			= rm -f
 AR			= ar rcs
 
-# Colors
 
-DEF_COLOR = \033[0;39m
-GRAY = \033[0;90m
+##### variables, que son STANDAR, además de dir para meter los .o y los .c --> los headers van en el STANDAR INCLUDES.
+
+############# GET AND USE ECHO WITH COLORS###########################################
+NO_COLOR = \033[0;39m
 RED = \033[0;91m
 GREEN = \033[0;92m
 YELLOW = \033[0;93m
 BLUE = \033[0;94m
-MAGENTA = \033[0;95m
-CYAN = \033[0;96m
-WHITE = \033[0;97m
+####################################################################################
+####   COLOR CODES FOR ECHO:
+###     Black        0;30     Dark Gray     1;30
+#		Red          0;31     Light Red     1;31
+#		Green        0;32     Light Green   1;32
+#		Brown/Orange 0;33     Yellow        1;33
+#		Blue         0;34     Light Blue    1;34
+#		Purple       0;35     Light Purple  1;35
+#		Cyan         0;36     Light Cyan    1;36
+#		Light Gray   0;37     White         1;37 
+#		    
+#		    Cómo usarlos:
+#			RED='\033[0;31m'
+#			NC='\033[0m'    -->  # No Color
+##			printf "I ${RED}love${NC} you\n"
+###
+####
+######################################################################################
 
-#Sources
+####################################### CREATE PATHS  + VARS WITH FILES  "SRCS"############################################
 
 SRC_FILES	=	ft_printf ft_hex ft_printchar ft_printnbr ft_printp ft_printpercent ft_printstr ft_printunbr
 
@@ -30,7 +46,7 @@ SRC_FILES	=	ft_printf ft_hex ft_printchar ft_printnbr ft_printp ft_printpercent 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
-###
+################################################################################# TARGETS ##########################################################
 
 OBJF		=	.cache_exists
 
@@ -41,10 +57,10 @@ $(NAME):	$(OBJ)
 			@cp libft/libft.a .
 			@mv libft.a $(NAME)
 			@$(AR) $(NAME) $(OBJ)
-			@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
+			@echo "$(GREEN)libftprintf.a compiled!$(NO_COLOR)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+			@echo "$(YELLOW)Compiling: $< $(NO_COLOR)"
 			@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(OBJF):
@@ -53,18 +69,27 @@ $(OBJF):
 clean:
 			@$(RM) -rf $(OBJ_DIR)
 			@make clean -C $(LIBFT)
-			@echo "$(BLUE)ft_printf object files cleaned!$(DEF_COLOR)"
+			@echo "$(BLUE)ft_printf object files cleaned!$(NO_COLOR)"
 
 fclean:		clean
 			@$(RM) -f $(NAME)
 			@$(RM) -f $(LIBFT)/libft.a
-			@echo "$(CYAN)ft_printf executable files cleaned!$(DEF_COLOR)"
-			@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
+			@echo "$(RED)ft_printf executable files cleaned!$(NO_COLOR)"
+			@echo "$(RED)libft executable files cleaned!$(NO_COLOR)"
 
 re:			fclean all
-			@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
+			@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(NO_COLOR)"
 
-norm:
-			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
+.PHONY:		all clean fclean re
 
-.PHONY:		all clean fclean re norm
+############################FINAL NOTES############################
+####
+###
+##	Evitar relink --> dentro de tu OBJ_DIR crear un .file como dir padre usas
+#					  el DIR de los OBJ. Realmente solo lo compilas de 		#						prerequisite
+#
+##
+###			c --> compile .o
+####		C --> do make recursively + target folder.
+#####
+#################################################################
