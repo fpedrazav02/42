@@ -1,4 +1,4 @@
-####################################### STANDAR VAR + LOCATIONS ################################################################
+####################################### STANDAR VAR + LOCATIONS ###################################################################################
 
 NAME		= libftprintf.a
 INCLUDE		= include
@@ -7,19 +7,19 @@ SRC_DIR		= src/
 OBJ_DIR		= obj/
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -I
-RM			= rm -f
+RM			= rm -rf
 AR			= ar rcs
 
 
 ##### variables, que son STANDAR, además de dir para meter los .o y los .c --> los headers van en el STANDAR INCLUDES.
 
-############# GET AND USE ECHO WITH COLORS###########################################
+############# GET AND USE ECHO WITH COLORS##########################################################################################################
 NO_COLOR = \033[0;39m
 RED = \033[0;91m
 GREEN = \033[0;92m
 YELLOW = \033[0;93m
 BLUE = \033[0;94m
-####################################################################################
+#####################################################################################################################################################
 ####   COLOR CODES FOR ECHO:
 ###     Black        0;30     Dark Gray     1;30
 #		Red          0;31     Light Red     1;31
@@ -36,9 +36,9 @@ BLUE = \033[0;94m
 ##			printf "I ${RED}love${NC} you\n"
 ###
 ####
-######################################################################################
+#####################################################################################################################################################
 
-####################################### CREATE PATHS  + VARS WITH FILES  "SRCS"############################################
+####################################### CREATE PATHS  + VARS WITH FILES  "SRCS"#####################################################################
 
 SRC_FILES	=	ft_printf ft_hex ft_printchar ft_printnbr ft_printp ft_printpercent ft_printstr ft_printunbr
 
@@ -48,7 +48,7 @@ OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
 ################################################################################# TARGETS ##########################################################
 
-OBJF		=	.cache_exists
+OBJF		=	.relink
 
 all:		$(NAME)
 
@@ -57,7 +57,7 @@ $(NAME):	$(OBJ)
 			@cp libft/libft.a .
 			@mv libft.a $(NAME)
 			@$(AR) $(NAME) $(OBJ)
-			@echo "$(GREEN)libftprintf.a compiled!$(NO_COLOR)"
+			@echo "$(RED)libftprintf.a compiled!$(NO_COLOR)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 			@echo "$(YELLOW)Compiling: $< $(NO_COLOR)"
@@ -69,7 +69,7 @@ $(OBJF):
 clean:
 			@$(RM) -rf $(OBJ_DIR)
 			@make clean -C $(LIBFT)
-			@echo "$(BLUE)ft_printf object files cleaned!$(NO_COLOR)"
+			@echo "$(BLUE)ft_printf *.o files cleaned!$(NO_COLOR)"
 
 fclean:		clean
 			@$(RM) -f $(NAME)
@@ -82,14 +82,15 @@ re:			fclean all
 
 .PHONY:		all clean fclean re
 
-############################FINAL NOTES############################
+######################################FINAL NOTES########################################################################
 ####
 ###
 ##	Evitar relink --> dentro de tu OBJ_DIR crear un .file como dir padre usas
-#					  el DIR de los OBJ. Realmente solo lo compilas de 		#						prerequisite
+#					  el DIR de los OBJ. MAKE hace realink si han cmbiado tus dependencias
+#					#prerequisite y dependencias
 #
 ##
 ###			c --> compile .o
 ####		C --> do make recursively + target folder.
 #####
-#################################################################
+#########################################################################################################################

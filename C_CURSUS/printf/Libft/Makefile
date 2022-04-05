@@ -6,7 +6,7 @@
 #    By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 10:02:45 by fpedraza          #+#    #+#              #
-#    Updated: 2022/04/04 00:11:09 by fpedraza         ###   ########.fr        #
+#    Updated: 2022/04/05 09:10:05 by fpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ OBJS 		= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
 #### SRC_FILES, que luego aplicamos de igual modo con .c o .o, metiendo todo o en SRCS o en OBJS
 #########################################################################################################################
 
-OBJSF		=	.cache_exists
+OBJSF		=	.relink
 
 all:		$(NAME)
 
@@ -87,13 +87,13 @@ $(OBJSF):
 			@mkdir -p $(OBJS_DIR)$(FTLST_DIR)
 
 clean:
-			@$(RM) -rfv $(OBJS_DIR)
-			@$(RM) -rfv $(OBJSF)
-			@echo "all *.o files have been cleared"
+			@$(RM) -rf $(OBJS_DIR)
+			@$(RM) -rf $(OBJSF)
+			@echo "libft *.o files cleared!"
 
 fclean:		clean
-			@$(RM) -fv $(NAME)
-			@echo "fclean executed correctly!"
+			@$(RM) -rf $(NAME)
+			@echo "libft.a has been deleted!"
 
 re:			fclean all
 			@echo "DONE RE:!"
